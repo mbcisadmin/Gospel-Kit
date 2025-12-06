@@ -29,7 +29,7 @@ export default function Dashboard() {
             Ministry Applications
           </h1>
           <p className="text-muted-foreground">
-            Welcome to your church's apps platform
+            Welcome to your church&apos;s apps platform
           </p>
         </div>
 

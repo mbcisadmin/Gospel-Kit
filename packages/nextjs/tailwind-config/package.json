@@ -1,0 +1,27 @@
+{
+  "name": "@church/tailwind-config",
+  "version": "1.0.0",
+  "description": "Shared Tailwind CSS configuration and design tokens for Gospel Kit",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./tokens/colors": "./tokens/colors.js",
+    "./tokens/typography": "./tokens/typography.js",
+    "./tokens/spacing": "./tokens/spacing.js"
+  },
+  "scripts": {
+    "build": "echo 'Skipping build - using raw JavaScript files'"
+  },
+  "keywords": [
+    "tailwind",
+    "design-tokens",
+    "church",
+    "gospel-kit"
+  ],
+  "peerDependencies": {
+    "tailwindcss": "^4.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.0.0"
+  }
+}

@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from "react";
 import { signIn, getSession } from "next-auth/react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 function SignInContent() {
   const searchParams = useSearchParams();
@@ -52,12 +53,12 @@ function SignInContent() {
           Sign in with Ministry Platform
         </button>
         <div className="mt-6 text-center">
-          <a
+          <Link
             href="/"
             className="text-sm text-gray-600 dark:text-gray-400 hover:text-[#61BC47] dark:hover:text-[#61BC47] transition-colors underline"
           >
             Continue without signing in
-          </a>
+          </Link>
         </div>
       </div>
     </div>

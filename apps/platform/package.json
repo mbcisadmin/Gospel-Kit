@@ -13,6 +13,7 @@
     "@church/database": "*",
     "@church/nextjs-auth": "*",
     "@church/nextjs-ui": "*",
+    "@church/tailwind-config": "*",
     "date-fns": "^4.1.0",
     "framer-motion": "^11.15.0",
     "next": "^15.0.0",

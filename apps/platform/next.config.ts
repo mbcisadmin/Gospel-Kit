@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+
+  // Turborepo configuration - tell Next.js where the monorepo root is
+  outputFileTracingRoot: path.join(__dirname, "../../"),
 
   // Allow loading images from MinistryPlatform
   images: {

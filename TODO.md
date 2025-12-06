@@ -22,44 +22,16 @@ Items to complete before shipping v1.0
   - Integration with MP Events and Event_Participants
   - Include as example micro-app
 
-## Template Refinements
-
-- [ ] **Fix CSS import warning**
-  - Move Google Fonts import to top of globals.css
-  - Resolve Tailwind CSS warning during build
-
-- [ ] **Fix ESLint warnings**
-  - Fix unescaped apostrophe in dashboard (src/app/(app)/page.tsx:32)
-  - Fix `<a>` tag usage in signin page (should use Next.js Link)
-
-- [ ] **Fix Next.js workspace warning**
-  - Add `outputFileTracingRoot` to next.config.ts
-  - Or remove extra lockfiles from parent directories
-
-- [ ] **Improve .env.example**
-  - Add all required environment variables
-  - Add helpful comments for each variable
-  - Include example values where appropriate
-
 ## Documentation
 
 - [ ] **Update README.md**
   - Reflect simplified template structure
   - Update screenshots/examples if Counter app is included
-  - Add badges (build status, license, etc.)
 
 - [ ] **Review SETUP.md**
   - Ensure all steps are accurate for simplified template
   - Test setup process from scratch
   - Add troubleshooting section if missing
-
-- [ ] **Add CHANGELOG.md**
-  - Document v1.0 initial release
-  - Set up format for future releases
-
-- [ ] **Add LICENSE file**
-  - Choose appropriate license (MIT?)
-  - Add license text
 
 ## Package Improvements
 

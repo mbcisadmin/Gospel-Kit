@@ -1,0 +1,89 @@
+# Upstream Fixes
+
+This file tracks bugs and improvements discovered in this church deployment that should be backported to the **gospel-kit-template** repository.
+
+> **Important:** This is a fork of gospel-kit-template. When you fix template bugs (not church-specific issues), document them here so they can be applied to the template and benefit all churches.
+
+---
+
+## Pending Backport
+
+Fixes that need to be applied to gospel-kit-template:
+
+<!-- Example:
+### Fix API Token Refresh Logic
+
+**Issue:** Access tokens weren't refreshing properly when expired, causing 401 errors.
+
+**Fix Applied:**
+- File: `packages/core/ministry-platform/src/client.ts:45-60`
+- Commit: `abc123def`
+- Date: 2024-12-05
+
+**Details:**
+Changed token refresh to check expiration 5 minutes before actual expiry instead of waiting for 401 response.
+
+---
+-->
+
+---
+
+## Applied to Template
+
+Fixes that have been successfully backported:
+
+<!-- Example:
+### Audit Logging TypeScript Enforcement
+
+**Applied:** 2024-12-05
+**Template Commit:** `xyz789`
+
+Fixed TypeScript types to require `$userId` parameter, preventing runtime errors from missing audit logging.
+
+---
+-->
+
+---
+
+## Church-Specific (Not for Template)
+
+Fixes that are specific to this church and should NOT be backported:
+
+<!-- Example:
+### Woodside Budget Categories
+
+**Church-Specific:** Woodside Bible Church only
+
+Added custom budget approval workflow for Woodside's finance team. Other churches have different processes.
+
+---
+-->
+
+---
+
+## How to Use This File
+
+### When Fixing a Bug
+
+1. **Ask yourself:** "Is this a template bug or church-specific?"
+   - **Template bug:** Affects core packages, auth, UI components, etc.
+   - **Church-specific:** Uses hardcoded church data, custom workflows, etc.
+
+2. **If template bug:**
+   - Document it in "Pending Backport" section above
+   - Include file paths, commit hash, and description
+   - Tag with `/mark-upstream` if using Claude skill
+
+3. **If church-specific:**
+   - Document in "Church-Specific" section (for reference)
+   - No need to backport
+
+### When Backporting to Template
+
+1. Open gospel-kit-template repository
+2. For each item in "Pending Backport":
+   - Apply the fix to the template
+   - Test thoroughly
+   - Commit with reference to this file
+3. Move item to "Applied to Template" section
+4. Pull latest template updates into other church forks

@@ -173,12 +173,14 @@ Ensure your API user has permissions on these tables:
 
 ### Step 8: Environment Variables
 
-Create environment file:
+Create environment file at the **monorepo root**:
 
 ```bash
-cd apps/platform
+# From gospel-kit-template root directory
 cp .env.example .env
 ```
+
+**Why at root?** Environment variables are workspace-wide and shared across all apps. This matches the Vercel team-wide environment variables strategy.
 
 Edit `.env`:
 
@@ -341,18 +343,26 @@ Register in MP Admin Console → API Procedures.
 
 #### b) Set Environment Variables
 
-In Vercel dashboard → Settings → Environment Variables, add:
+**Recommended Approach: Team-Wide + Project-Specific**
 
-```env
-MINISTRY_PLATFORM_BASE_URL=https://yourchurch.ministryplatform.com
-MINISTRY_PLATFORM_CLIENT_ID=<your-client-id>
-MINISTRY_PLATFORM_CLIENT_SECRET=<your-client-secret>
-NEXTAUTH_SECRET=<your-generated-secret>
-NEXTAUTH_URL=https://apps.yourchurch.org
-NODE_ENV=production
-```
+Since you'll likely have multiple projects (apps platform, microsites, etc.) sharing the same MinistryPlatform instance:
 
-**Important:** Use different `NEXTAUTH_SECRET` for production!
+1. **Team Settings** → **Environment Variables** (shared across all projects):
+   - `MINISTRY_PLATFORM_BASE_URL=https://yourchurch.ministryplatform.com`
+   - `MINISTRY_PLATFORM_CLIENT_ID=<your-client-id>`
+   - `MINISTRY_PLATFORM_CLIENT_SECRET=<your-client-secret>`
+
+2. **Project Settings** → **Environment Variables** (unique per project):
+   - `NEXTAUTH_SECRET=<your-generated-secret>`
+   - `NEXTAUTH_URL=https://apps.yourchurch.org` (or specific project URL)
+   - `NODE_ENV=production`
+
+**Why this approach?**
+- MP credentials are shared across all your church's apps
+- Each app has its own auth secret and URL
+- No duplication when you add microsites, widgets, etc.
+
+**Important:** Use different `NEXTAUTH_SECRET` for each project/environment!
 
 #### c) Deploy
 

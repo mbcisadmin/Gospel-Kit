@@ -2,6 +2,12 @@
 
 > **A modern, type-safe toolkit for building church applications with MinistryPlatform integration**
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
+[![Next.js 15](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org)
+[![Turborepo](https://img.shields.io/badge/Turborepo-latest-red)](https://turbo.build)
+[![Tailwind CSS 4](https://img.shields.io/badge/Tailwind-4.0-38bdf8)](https://tailwindcss.com)
+
 Gospel Kit is a Turborepo monorepo template that provides everything you need to build custom apps, microsites, and integrations for churches using MinistryPlatform. It emphasizes type safety, proper audit logging, and developer experience.
 
 ## 🎯 What's Included
@@ -141,7 +147,7 @@ cd my-church-apps
 npm install
 
 # 3. Configure environment
-cp apps/platform/.env.example apps/platform/.env
+cp .env.example .env
 # Edit .env with your MP credentials
 
 # 4. Start development
@@ -394,7 +400,9 @@ Common issues:
 
 ## 📄 License
 
-This template is provided as-is for church use.
+MIT License - see [LICENSE](./LICENSE) for details
+
+Copyright (c) 2024-present Colton Wirgau
 
 ## 🤝 Contributing
 
