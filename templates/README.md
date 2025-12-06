@@ -6,12 +6,12 @@ Starter templates for creating new applications in Gospel Kit.
 
 ### 1. Micro-App (`micro-app/`)
 
-**Use for:** Internal staff tools within apps platform
+**Use for:** Church community tools within apps platform
 
 - **Location:** `apps/platform/src/app/(app)/my-app/`
 - **URL:** `apps.yourchurch.org/my-app`
-- **Examples:** Counter, Projects, People Search
-- **Authentication:** Required
+- **Examples:** Projects dashboard, annual meeting voting, team scheduling, people search
+- **Authentication:** Flexible (can be required, optional, or allow anonymous access)
 - **Deployment:** Part of apps platform (single Vercel project)
 
 [Read more →](./micro-app/README.md)
@@ -44,12 +44,12 @@ Starter templates for creating new applications in Gospel Kit.
 
 | Feature | Micro-App | Microsite | Widget |
 |---------|-----------|-----------|--------|
-| **Audience** | Church staff | Public | Public (embedded) |
+| **Audience** | Church community (staff, volunteers, congregation) | Public & outreach | Public (embedded) |
 | **Domain** | apps.yourchurch.org | groups.yourchurch.org | widgets.yourchurch.org |
-| **Auth** | Required | Optional | Optional |
+| **Auth** | Flexible (required, optional, or anonymous) | Optional (usually public) | Optional |
 | **Deployment** | Shared | Separate | Separate or shared |
 | **Full Page** | Yes | Yes | No (embeds in parent) |
-| **Example** | Projects dashboard | Groups directory | Event registration form |
+| **Example** | Projects, annual meeting voting, team scheduling | Groups directory, public events | Event registration form |
 
 ## Template Status
 

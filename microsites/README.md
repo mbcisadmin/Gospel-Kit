@@ -26,10 +26,10 @@ microsites/
 | Feature | Apps Platform (`apps/platform`) | Microsites (`microsites/*`) |
 |---------|--------------------------------|----------------------------|
 | **URL** | apps.yourchurch.org | groups.yourchurch.org |
-| **Auth** | Required (internal tools) | Optional (public-facing) |
-| **Audience** | Church staff | Congregation & public |
+| **Auth** | Flexible (required, optional, anonymous) | Optional (usually public) |
+| **Audience** | Church community (staff, volunteers, congregation) | Public & outreach |
 | **Deployment** | Single Vercel project | One project per microsite |
-| **Purpose** | Internal tools, dashboards | Public registration, info |
+| **Purpose** | Church tools (dashboards, voting, scheduling) | Public registration, information |
 
 ## Creating a New Microsite
 
