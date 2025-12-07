@@ -502,6 +502,88 @@ Run with `npm run test:ui` for visual debugging.
 
 ---
 
+## Known Issues
+
+### NextAuth + Next.js 16 Compatibility
+
+**Status:** Temporary workaround in place - all functionality works perfectly
+
+**Background:** Gospel Kit uses Next.js 16.0.7, which introduced a breaking
+change to API route signatures. Dynamic routes now receive a `context` parameter
+with async `params`:
+
+```typescript
+// Next.js 16 requires:
+export async function GET(
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
+) { ... }
+```
+
+NextAuth v5 (currently beta.30) hasn't been updated for this yet, so their
+handlers use the old signature.
+
+**Our Solution:** We've added a compatibility wrapper in
+`apps/platform/src/app/api/auth/[...nextauth]/route.ts`:
+
+```typescript
+// Wrapper adapts NextAuth handlers to Next.js 16 signature
+export const GET = async (
+  req: NextRequest,
+  context: { params: Promise<{ nextauth: string[] }> }
+) => {
+  return await handlers.GET(req as any);
+};
+```
+
+**Why This Works:**
+
+- NextAuth's `[...nextauth]` route doesn't actually use the params
+- All auth flows (sign in, callback, session, token refresh) work through the
+  request object
+- The wrapper simply accepts the new signature and passes through to NextAuth
+
+**Impact:**
+
+- ✅ All authentication functionality works perfectly
+- ✅ No performance impact
+- ✅ No security concerns
+- ✅ Production-ready and safe to deploy
+
+**What to Watch For:**
+
+1. **Monitor NextAuth releases:**
+
+   ```bash
+   npm view next-auth versions --json | tail -10
+   ```
+
+2. **Check the GitHub issue:**
+   https://github.com/nextauthjs/next-auth/issues/13302
+
+3. **When NextAuth adds Next.js 16 support:**
+   - Remove the wrapper from `route.ts`
+   - Revert to simple export: `export const { GET, POST } = handlers`
+   - Update in CHANGELOG.md
+
+4. **For your own dynamic API routes:** Remember to await params in Next.js 16:
+   ```typescript
+   export async function GET(
+     request: NextRequest,
+     { params }: { params: Promise<{ id: string }> }
+   ) {
+     const { id } = await params; // Must await!
+   }
+   ```
+
+**Expected Timeline:** The wrapper will likely be needed for a few months until
+NextAuth v5 goes stable (currently in beta) and adds official Next.js 16
+support.
+
+See **[CHANGELOG.md](./CHANGELOG.md)** for full upgrade notes.
+
+---
+
 ## Getting Help
 
 - **Template Issues:** See `TODO.md` for known issues

@@ -55,6 +55,15 @@ Items to complete before shipping v1.0
   - Remove unused components or move to separate package
   - Add README with component usage examples
 
+## Next.js 16 / NextAuth Compatibility
+
+- [ ] **Monitor NextAuth for Next.js 16 support**
+  - Check https://github.com/nextauthjs/next-auth/issues/13302 periodically
+  - When NextAuth officially supports Next.js 16, remove compatibility wrapper
+  - File: `apps/platform/src/app/api/auth/[...nextauth]/route.ts`
+  - Revert to simple export: `export const { GET, POST } = handlers`
+  - Update CHANGELOG.md to note wrapper removal
+
 ## Testing & Quality
 
 - [ ] **Test build from scratch**
@@ -128,6 +137,7 @@ Items to complete before shipping v1.0
 ---
 
 **Notes:**
+
 - Items marked with checkbox can be tracked with Git commits
 - Priority items are the Core Apps and Template Refinements
 - Documentation and Testing should be done before v1.0 release
