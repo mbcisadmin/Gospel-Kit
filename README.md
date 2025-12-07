@@ -4,8 +4,8 @@
 > MinistryPlatform integration**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Next.js 15](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue)](https://www.typescriptlang.org)
+[![Next.js 16](https://img.shields.io/badge/Next.js-16-black)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.1+-blue)](https://www.typescriptlang.org)
 [![Turborepo](https://img.shields.io/badge/Turborepo-latest-red)](https://turbo.build)
 [![Tailwind CSS 4](https://img.shields.io/badge/Tailwind-4.0-38bdf8)](https://tailwindcss.com)
 
@@ -34,7 +34,7 @@ experience.
 
 ### 🚀 Apps Platform
 
-A production-ready Next.js 15 platform for hosting multiple micro-apps:
+A production-ready Next.js 16 platform for hosting multiple micro-apps:
 
 - **Counter App** - Event metrics tracking (included as working example)
 - Route-based authentication with middleware
@@ -147,7 +147,7 @@ import {
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 20.9+ (LTS)
 - MinistryPlatform instance with OAuth configured
 - Git
 
@@ -470,7 +470,7 @@ This template is maintained for multiple churches. To propose changes:
 
 **Built with:**
 
-- [Next.js 15](https://nextjs.org)
+- [Next.js 16](https://nextjs.org) (Turbopack)
 - [Turborepo](https://turbo.build)
 - [NextAuth.js v5](https://next-auth.js.org)
 - [Tailwind CSS v4](https://tailwindcss.com)

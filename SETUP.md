@@ -20,7 +20,7 @@ Before starting, ensure you have:
 - [ ] MP Admin access to create OAuth clients
 - [ ] MP Admin access to create/register stored procedures
 - [ ] SQL Server Management Studio (SSMS) access to MP database
-- [ ] Node.js 20+ installed (`node --version`)
+- [ ] Node.js 20.9+ (LTS) installed (`node --version`)
 - [ ] Git installed
 - [ ] GitHub account (for version control)
 - [ ] Vercel account (for hosting) - optional but recommended

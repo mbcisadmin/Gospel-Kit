@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@church/ministry-platform": "*",
-    "next-auth": "5.0.0-beta.25",
-    "next": "^15.0.0"
+    "next-auth": "5.0.0-beta.30",
+    "next": "^16.0.0"
   },
   "devDependencies": {
     "typescript": "latest",
