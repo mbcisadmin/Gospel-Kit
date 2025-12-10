@@ -11,3 +11,4 @@ export * from './schemas/baseline/metrics';
 
 // Custom schemas (church-specific tables)
 export * from './schemas/custom/event-metrics';
+export * from './schemas/custom/pinned-items';

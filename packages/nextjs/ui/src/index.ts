@@ -46,3 +46,6 @@ export * from './components/PWAInstallPrompt';
 
 // Utilities
 export * from './components/SearchableSelect';
+
+// Pinned Items
+export * from './components/PinnedItems';
