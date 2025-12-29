@@ -1,12 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
-@import "tailwindcss";
+/* McLean Bible Church Fonts */
+/* Note: Gotham and Archer are commercial fonts. Using close alternatives from Google Fonts.
+   If you have font licenses, replace these URLs with your hosted font files. */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap'); /* Gotham alternative */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap'); /* Archer alternative */
+@import 'tailwindcss';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    'Montserrat', ui-sans-serif, system-ui, sans-serif; /* Headers - Gotham alternative */
+  --font-serif: 'Roboto Slab', ui-serif, Georgia, serif; /* Body - Archer alternative */
   --font-mono: var(--font-geist-mono);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -45,9 +51,9 @@
 
 :root {
   --radius: 0.125rem;
-  /* Church Branding Colors - Customize these for your church */
-  --brand-primary: #61bc47;  /* Primary brand color (green example) */
-  --brand-secondary: #1c2b39;  /* Secondary brand color (blue example) */
+  /* McLean Bible Church Branding Colors */
+  --brand-primary: #1d9fd9; /* McLean bright blue */
+  --brand-secondary: #0f4c75; /* Darker blue for contrast */
 
   --background: oklch(1 0 0);
   --foreground: var(--brand-secondary);
@@ -131,7 +137,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+    font-family:
+      'Roboto Slab', ui-serif, Georgia, serif; /* McLean body text - Archer alternative */
   }
   h1 {
     text-transform: lowercase;
@@ -141,9 +148,9 @@
 
 /* Button Styling */
 button,
-button[type="button"],
-button[type="submit"],
-input[type="submit"],
+button[type='button'],
+button[type='submit'],
+input[type='submit'],
 .btn {
   text-transform: uppercase;
   font-weight: 600;
@@ -153,14 +160,10 @@ input[type="submit"],
 /* Button Hover Transitions */
 @media only screen and (hover: hover) {
   /* Exclude buttons with custom hover states from global hover */
-  button:not([class*="hover:bg-"]):not([class*="hover:border-"]):hover,
-  button[type="button"]:not([class*="hover:bg-"]):not(
-      [class*="hover:border-"]
-    ):hover,
-  button[type="submit"]:not([class*="hover:bg-"]):not(
-      [class*="hover:border-"]
-    ):hover,
-  input[type="submit"]:hover,
+  button:not([class*='hover:bg-']):not([class*='hover:border-']):hover,
+  button[type='button']:not([class*='hover:bg-']):not([class*='hover:border-']):hover,
+  button[type='submit']:not([class*='hover:bg-']):not([class*='hover:border-']):hover,
+  input[type='submit']:hover,
   .btn:hover {
     background: var(--brand-secondary);
     border-color: var(--brand-secondary);
@@ -169,8 +172,8 @@ input[type="submit"],
   }
 
   /* Preserve variant-specific hovers for ghost/outline buttons */
-  button[class*="variant-ghost"]:hover,
-  button[class*="variant-outline"]:hover {
+  button[class*='variant-ghost']:hover,
+  button[class*='variant-outline']:hover {
     background: oklch(0.19 0.025 240 / 0.1);
     border-color: var(--brand-secondary);
   }
@@ -233,4 +236,3 @@ header nav {
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
-

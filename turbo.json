@@ -1,17 +1,20 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
-  "globalEnv": ["NODE_ENV"],
+  "globalDependencies": ["**/.env", "**/.env.*local"],
+  "globalEnv": [
+    "NODE_ENV",
+    "MINISTRY_PLATFORM_BASE_URL",
+    "MINISTRY_PLATFORM_CLIENT_ID",
+    "MINISTRY_PLATFORM_CLIENT_SECRET",
+    "NEXTAUTH_SECRET",
+    "NEXTAUTH_URL",
+    "NEXT_PUBLIC_MINISTRY_PLATFORM_FILE_URL",
+    "NEXT_PUBLIC_APP_NAME"
+  ],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"],
-      "env": [
-        "MINISTRY_PLATFORM_BASE_URL",
-        "MINISTRY_PLATFORM_CLIENT_ID",
-        "NEXTAUTH_URL",
-        "NODE_ENV"
-      ]
+      "outputs": [".next/**", "!.next/cache/**", "dist/**", "build/**"]
     },
     "dev": {
       "cache": false,

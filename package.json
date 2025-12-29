@@ -12,7 +12,7 @@
     "widgets/*"
   ],
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "dotenv -e .env -- turbo run dev",
     "build": "turbo run build",
     "lint": "turbo run lint",
     "test": "vitest run",
@@ -39,6 +39,7 @@
     "@testing-library/react": "^16.3.0",
     "@vitejs/plugin-react": "^5.1.1",
     "@vitest/ui": "^3.2.4",
+    "dotenv-cli": "^11.0.0",
     "drizzle-kit": "^0.31.8",
     "drizzle-orm": "^0.45.0",
     "happy-dom": "^20.0.11",

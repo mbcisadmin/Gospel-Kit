@@ -30,7 +30,7 @@ const manifests: Record<string, AppManifest> = {
     scope: '/projects',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#61BC47',
+    theme_color: '#1D9FD9',
     orientation: 'any',
     categories: ['finance', 'productivity', 'business'],
     icons: [
@@ -175,13 +175,13 @@ const manifests: Record<string, AppManifest> = {
     ],
   },
   default: {
-    name: 'Woodside Bible Church Apps',
-    short_name: 'WBC Apps',
+    name: 'McLean Bible Church Apps',
+    short_name: 'MBC Apps',
     description: 'Church management and community apps',
     start_url: '/',
     display: 'standalone',
     background_color: '#ffffff',
-    theme_color: '#61BC47',
+    theme_color: '#1D9FD9',
     orientation: 'any',
     categories: ['productivity', 'lifestyle'],
     icons: [
