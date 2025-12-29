@@ -13,7 +13,7 @@
     "dev": "echo 'Skipping dev - using raw TypeScript files'"
   },
   "dependencies": {
-    "zod": "^3.22.4"
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "typescript": "latest",
