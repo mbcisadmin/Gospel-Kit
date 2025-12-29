@@ -19,9 +19,9 @@
     "gospel-kit"
   ],
   "peerDependencies": {
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "tailwindcss": "^4.0.0"
+    "tailwindcss": "^4.1.18"
   }
 }
