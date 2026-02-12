@@ -83,7 +83,7 @@ export default function UserAvatar({
             viewBox="0 0 36 36"
           >
             <defs>
-              <path id={pathId} d="M 18,18 m -13,0 a 13,13 0 1,1 26,0 a 13,13 0 1,1 -26,0" />
+              <path id={pathId} d="M 18,18 m -11,0 a 11,11 0 1,1 22,0 a 11,11 0 1,1 -22,0" />
             </defs>
             <text fill="var(--secondary)" fontSize="5.8" fontWeight="600" letterSpacing="0.15em">
               <textPath href={`#${pathId}`} startOffset="0%">
