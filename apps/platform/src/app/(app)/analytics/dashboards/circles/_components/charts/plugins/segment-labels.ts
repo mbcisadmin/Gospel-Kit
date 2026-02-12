@@ -5,11 +5,11 @@ import { ICON_SVG_PATHS } from '../../../_data/constants';
 const ICON_NAMES = ['globe', 'users', 'church', 'heart-handshake', 'star'];
 
 // Light mode colors
-const INNER_COLORS_LIGHT = ['#2e7d32', '#1b5e20', '#ffffff', '#ffffff', '#ffffff'];
+const INNER_COLORS_LIGHT = ['#0d47a1', '#0a3d7a', '#ffffff', '#ffffff', '#ffffff'];
 const OUTER_COLOR_LIGHT = '#6b7280';
 
 // Dark mode colors - more vibrant on dark backgrounds
-const INNER_COLORS_DARK = ['#7acc7e', '#8ce68e', '#ffffff', '#ffffff', '#ffffff'];
+const INNER_COLORS_DARK = ['#64b5f6', '#90caf9', '#ffffff', '#ffffff', '#ffffff'];
 const OUTER_COLOR_DARK = '#9ca3af';
 
 // Cache icons for each theme

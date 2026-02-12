@@ -22,7 +22,7 @@ interface MultiModeBarChartProps {
   chartId: string;
   chartData: BarChartData;
   legendItems: LegendItem[];
-  colorMode?: 'green' | 'blue' | 'orange';
+  colorMode?: 'blue' | 'orange';
   filterConfig?: FilterConfig;
   selectedValues?: string[];
   onLegendClick?: (value: string) => void;
@@ -61,7 +61,7 @@ export default function MultiModeBarChart({
   chartId,
   chartData,
   legendItems,
-  colorMode = 'green',
+  colorMode = 'blue',
   filterConfig,
   selectedValues = [],
   onLegendClick,

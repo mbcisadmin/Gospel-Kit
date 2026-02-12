@@ -9,27 +9,21 @@ const ICONS = [Globe, Users, Church, HeartHandshake, Star];
 
 interface MatrixHeatmapProps {
   chartData: BarChartData;
-  colorMode?: 'green' | 'blue' | 'orange';
+  colorMode?: 'blue' | 'orange';
 }
 
 function getHeatmapColor(intensity: number, mode: string): string {
   const i = Math.pow(intensity, 0.5);
-  if (mode === 'blue') {
-    const r = Math.round(220 - i * 161);
-    const g = Math.round(220 - i * 90);
-    const b = Math.round(255 - i * 9);
-    return `rgb(${r},${g},${b})`;
-  }
   if (mode === 'orange') {
     const r = Math.round(255 - i * 6);
     const g = Math.round(230 - i * 115);
     const b = Math.round(200 - i * 178);
     return `rgb(${r},${g},${b})`;
   }
-  // green (default for engagement)
-  const r = Math.round(200 - i * 110);
-  const g = Math.round(245 - i * 57);
-  const b = Math.round(200 - i * 140);
+  // blue (default for engagement)
+  const r = Math.round(220 - i * 161);
+  const g = Math.round(220 - i * 90);
+  const b = Math.round(255 - i * 9);
   return `rgb(${r},${g},${b})`;
 }
 
@@ -37,7 +31,7 @@ function formatValue(val: number): string {
   return val >= 1000 ? (val / 1000).toFixed(1) + 'k' : String(val);
 }
 
-export default function MatrixHeatmap({ chartData, colorMode = 'green' }: MatrixHeatmapProps) {
+export default function MatrixHeatmap({ chartData, colorMode = 'blue' }: MatrixHeatmapProps) {
   const maxVal = Math.max(...chartData.values.flat());
 
   return (

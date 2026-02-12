@@ -54,7 +54,7 @@ export default function ModalLineChart({ history, color, label, labels }: ModalL
         legend: { display: false },
         tooltip: {
           enabled: !isMobile,
-          backgroundColor: isDark ? '#2a4a2c' : '#1a1a1a',
+          backgroundColor: isDark ? '#1e3c5a' : '#1a1a1a',
           titleFont: { size: 12, weight: 'bold' },
           bodyFont: { size: 14, weight: 'bold' },
           padding: 12,
@@ -67,10 +67,10 @@ export default function ModalLineChart({ history, color, label, labels }: ModalL
       scales: {
         y: {
           beginAtZero: false,
-          grid: { color: isDark ? 'rgba(128, 200, 128, 0.15)' : 'rgba(128, 128, 128, 0.12)' },
+          grid: { color: isDark ? 'rgba(128, 160, 200, 0.15)' : 'rgba(128, 128, 128, 0.12)' },
           ticks: {
             font: { size: 11 },
-            color: isDark ? '#a0c0a2' : undefined,
+            color: isDark ? '#a0b8c8' : undefined,
             callback: (value) => Number(value).toLocaleString(),
           },
         },
@@ -78,7 +78,7 @@ export default function ModalLineChart({ history, color, label, labels }: ModalL
           grid: { display: false },
           ticks: {
             font: { size: 11 },
-            color: isDark ? '#a0c0a2' : undefined,
+            color: isDark ? '#a0b8c8' : undefined,
             autoSkip: false,
             maxRotation: 0,
           },

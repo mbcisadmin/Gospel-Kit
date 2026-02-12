@@ -452,25 +452,46 @@ export const MOCK_MILESTONES: MilestoneSection[] = [
 ];
 
 // ---------------------------------------------------------------------------
-// 4. Mock Fiscal Periods (Jan 2024 - Dec 2025, 24 months)
+// 4. Mock Fiscal Periods (Dec 2024 - Feb 2026, 15 months)
 // ---------------------------------------------------------------------------
 
 function generateFiscalPeriods(): FiscalPeriod[] {
   const periods: FiscalPeriod[] = [];
-  let id = 101;
+  let id = 112; // Start from Dec 2024
 
-  for (let year = 2024; year <= 2025; year++) {
-    for (let month = 0; month < 12; month++) {
-      const date = new Date(year, month, 1);
-      const label = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
-      const shortMonth = date.toLocaleDateString('en-US', { month: 'short' });
-      periods.push({
-        id,
-        name: `${shortMonth} ${year}`,
-        label,
-      });
-      id++;
-    }
+  // Dec 2024
+  const dec2024 = new Date(2024, 11, 1);
+  periods.push({
+    id,
+    name: `Dec 2024`,
+    label: dec2024.toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
+  });
+  id++;
+
+  // Jan 2025 - Dec 2025
+  for (let month = 0; month < 12; month++) {
+    const date = new Date(2025, month, 1);
+    const label = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const shortMonth = date.toLocaleDateString('en-US', { month: 'short' });
+    periods.push({
+      id,
+      name: `${shortMonth} 2025`,
+      label,
+    });
+    id++;
+  }
+
+  // Jan 2026 - Feb 2026
+  for (let month = 0; month < 2; month++) {
+    const date = new Date(2026, month, 1);
+    const label = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+    const shortMonth = date.toLocaleDateString('en-US', { month: 'short' });
+    periods.push({
+      id,
+      name: `${shortMonth} 2026`,
+      label,
+    });
+    id++;
   }
 
   return periods;
@@ -517,8 +538,9 @@ function generateOverTimeData(asOfPeriodId?: number): OverTimeData {
   const selectedIndex = MOCK_FISCAL_PERIODS.findIndex((p) => p.id === selectedId);
   const endIndex = selectedIndex >= 0 ? selectedIndex : MOCK_FISCAL_PERIODS.length - 1;
 
-  // Always show all periods up to the selected one
-  const periods = MOCK_FISCAL_PERIODS.slice(0, endIndex + 1);
+  // Show up to 13 months ending at the selected period
+  const allPeriods = MOCK_FISCAL_PERIODS.slice(0, endIndex + 1);
+  const periods = allPeriods.slice(-13);
 
   const labels: string[] = [];
   const fullLabels: string[] = [];
@@ -542,7 +564,7 @@ function generateOverTimeData(asOfPeriodId?: number): OverTimeData {
   for (let i = 0; i < periods.length; i++) {
     const period = periods[i];
     const parts = period.name.split(' ');
-    labels.push(parts[parts.length - 1]);
+    labels.push(parts[0]);
     fullLabels.push(period.label);
 
     const progress = periods.length > 1 ? i / (periods.length - 1) : 1;

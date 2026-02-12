@@ -40,69 +40,69 @@ const LIGHT_COLORS: Record<
   { bg: string; border: string; borderStyle: string; iconColor: string }
 > = {
   community: {
-    bg: 'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)',
-    border: '#a5d6a7',
+    bg: 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)',
+    border: '#90caf9',
     borderStyle: 'dashed',
-    iconColor: '#4a7c4e',
+    iconColor: '#1565c0',
   },
   crowd: {
-    bg: 'linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%)',
-    border: '#81c784',
+    bg: 'linear-gradient(135deg, #bbdefb 0%, #90caf9 100%)',
+    border: '#64b5f6',
     borderStyle: 'solid',
-    iconColor: '#3d6b40',
+    iconColor: '#0d47a1',
   },
   congregation: {
-    bg: 'linear-gradient(135deg, #a5d6a7 0%, #81c784 100%)',
-    border: '#66bb6a',
+    bg: 'linear-gradient(135deg, #90caf9 0%, #64b5f6 100%)',
+    border: '#42a5f5',
     borderStyle: 'solid',
-    iconColor: '#2d5a30',
+    iconColor: '#0d47a1',
   },
   committed: {
-    bg: 'linear-gradient(135deg, #81c784 0%, #66bb6a 100%)',
-    border: '#4caf50',
+    bg: 'linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%)',
+    border: '#1d9fd9',
     borderStyle: 'solid',
     iconColor: '#fff',
   },
   core: {
-    bg: 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)',
-    border: '#2e7d32',
+    bg: 'linear-gradient(135deg, #1d9fd9 0%, #1272a0 100%)',
+    border: '#0e5a7a',
     borderStyle: 'solid',
     iconColor: '#fff',
   },
 };
 
-// Dark mode colors - vibrant greens, progressively brighter for inner circles
+// Dark mode colors - blue brand, progressively brighter for inner circles
 const DARK_COLORS: Record<
   CircleName,
   { bg: string; border: string; borderStyle: string; iconColor: string }
 > = {
   community: {
-    bg: 'linear-gradient(135deg, #2a4a2c 0%, #3d5a3e 100%)',
-    border: '#4a7a4c',
+    bg: 'linear-gradient(135deg, #142a40 0%, #1e3c5a 100%)',
+    border: '#3a7ab0',
     borderStyle: 'dashed',
-    iconColor: '#7acc7e',
+    iconColor: '#64b5f6',
   },
   crowd: {
-    bg: 'linear-gradient(135deg, #3d5a3e 0%, #4a7a4c 100%)',
-    border: '#5a9a5c',
+    bg: 'linear-gradient(135deg, #1e3c5a 0%, #2a5a80 100%)',
+    border: '#4a8ac0',
     borderStyle: 'solid',
-    iconColor: '#8ce68e',
+    iconColor: '#90caf9',
   },
   congregation: {
-    bg: 'linear-gradient(135deg, #4a7a4c 0%, #5a9a5c 100%)',
-    border: '#6ab86c',
+    bg: 'linear-gradient(135deg, #2a5a80 0%, #3a7ab0 100%)',
+    border: '#4a9ad0',
     borderStyle: 'solid',
-    iconColor: '#a8f0aa',
+    iconColor: '#bbdefb',
   },
   committed: {
-    bg: 'linear-gradient(135deg, #5a9a5c 0%, #6ab86c 100%)',
-    border: '#7acc7e',
+    bg: 'linear-gradient(135deg, #3a7ab0 0%, #4a9ad0 100%)',
+    border: '#5abaee',
     borderStyle: 'solid',
-    iconColor: '#c8faca',
+    iconColor: '#dbeafe',
   },
   core: {
-    bg: 'linear-gradient(135deg, #6ab86c 0%, #7acc7e 100%)',
-    border: '#8ae08c',
+    bg: 'linear-gradient(135deg, #4a9ad0 0%, #5abaee 100%)',
+    border: '#6acafe',
     borderStyle: 'solid',
     iconColor: '#fff',
   },
@@ -145,7 +145,7 @@ export default function ConcentricCircles({ onCircleClick }: ConcentricCirclesPr
             onClick={() => onCircleClick(c.name)}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLDivElement).style.boxShadow =
-                '0 0 30px rgba(170, 212, 60, 0.3)';
+                '0 0 30px rgba(29, 159, 217, 0.3)';
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';

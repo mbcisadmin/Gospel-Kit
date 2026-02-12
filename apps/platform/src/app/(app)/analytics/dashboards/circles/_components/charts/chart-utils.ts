@@ -119,7 +119,7 @@ export function createDoughnutExternalTooltip(tooltipId: string, total: number, 
 
       const idx = tooltip.dataPoints[0].dataIndex;
       const bg = colors[idx];
-      const textColor = getLuminance(bg) > 0.6 ? '#1b5e20' : '#ffffff';
+      const textColor = getLuminance(bg) > 0.6 ? '#0d47a1' : '#ffffff';
       const val = tooltip.dataPoints[0].parsed.toLocaleString();
       const pct = ((tooltip.dataPoints[0].parsed / total) * 100).toFixed(1);
 

@@ -42,7 +42,7 @@ const ENGAGEMENT_CATEGORIES = [
   'Observing',
   'Lapsed',
 ];
-const ENGAGEMENT_COLORS = ['#AAD43C', '#eab308', '#f97316', '#3b82f6', '#ef4444'];
+const ENGAGEMENT_COLORS = ['#1d9fd9', '#eab308', '#f97316', '#3b82f6', '#ef4444'];
 
 const PARTICIPANT_CATEGORIES = [
   'Church Family',
@@ -64,8 +64,8 @@ const DEMOGRAPHICS_CATEGORIES = [
 ];
 const DEMOGRAPHICS_COLORS = ['#f97316', '#fb923c', '#fbbf24', '#facc15', '#a3e635', '#4ade80'];
 
-const DISTRIBUTION_COLORS = ['#c8e6c9', '#a5d6a7', '#81c784', '#66bb6a', '#4caf50'];
-const DISTRIBUTION_TEXT_COLORS = ['#252525', '#252525', undefined, undefined, undefined];
+const DISTRIBUTION_COLORS = ['#bbdefb', '#90caf9', '#64b5f6', '#42a5f5', '#1d9fd9'];
+const DISTRIBUTION_TEXT_COLORS = ['#252525', '#252525', '#252525', undefined, undefined];
 const DISTRIBUTION_ICONS = ['Globe', 'Users', 'Church', 'HeartHandshake', 'Star'];
 
 // Demographics legend text colors (lighter colors need dark text)
@@ -508,7 +508,7 @@ export default function CurrentTab({ filterConfigs, participants }: CurrentTabPr
             chartId="engagement-fullscreen"
             chartData={engagementData}
             legendItems={engagementLegend}
-            colorMode="green"
+            colorMode="blue"
             filterConfig={getFilterConfig('engagement')}
             selectedValues={filters.engagement ?? []}
             onLegendClick={(value) => toggleFilterValue('engagement', value)}
@@ -607,7 +607,7 @@ export default function CurrentTab({ filterConfigs, participants }: CurrentTabPr
                 chartId="engagement-compact"
                 chartData={engagementData}
                 legendItems={engagementLegend}
-                colorMode="green"
+                colorMode="blue"
                 compact
                 viewMode={engagementViewMode}
               />
@@ -706,7 +706,7 @@ export default function CurrentTab({ filterConfigs, participants }: CurrentTabPr
           chartId="engagement"
           chartData={engagementData}
           legendItems={engagementLegend}
-          colorMode="green"
+          colorMode="blue"
           filterConfig={getFilterConfig('engagement')}
           selectedValues={filters.engagement ?? []}
           onLegendClick={(value) => toggleFilterValue('engagement', value)}

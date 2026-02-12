@@ -8,56 +8,56 @@ export const CIRCLE_ORDER: CircleName[] = [
   'core',
 ];
 
-// Light mode circle styles
+// Light mode circle styles — MBC blue brand palette (outer lightest → inner darkest)
 export const CIRCLE_STYLES: Record<CircleName, CircleStyle> = {
   community: {
-    bg: '#c8e6c9',
-    bgGradient: 'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)',
-    border: '#a5d6a7',
+    bg: '#bbdefb',
+    bgGradient: 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)',
+    border: '#90caf9',
     borderStyle: 'dashed',
-    iconColor: '#4a7c4e',
+    iconColor: '#1565c0',
     textColor: '#252525',
-    labelColor: 'text-green-700',
+    labelColor: 'text-[#1565c0]',
     icon: 'Globe',
   },
   crowd: {
-    bg: '#a5d6a7',
-    bgGradient: 'linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%)',
-    border: '#81c784',
+    bg: '#90caf9',
+    bgGradient: 'linear-gradient(135deg, #bbdefb 0%, #90caf9 100%)',
+    border: '#64b5f6',
     borderStyle: 'solid',
-    iconColor: '#3d6b40',
+    iconColor: '#0d47a1',
     textColor: '#252525',
-    labelColor: 'text-green-800',
+    labelColor: 'text-[#0d47a1]',
     icon: 'Users',
   },
   congregation: {
-    bg: '#81c784',
-    bgGradient: 'linear-gradient(135deg, #a5d6a7 0%, #81c784 100%)',
-    border: '#66bb6a',
+    bg: '#64b5f6',
+    bgGradient: 'linear-gradient(135deg, #90caf9 0%, #64b5f6 100%)',
+    border: '#42a5f5',
     borderStyle: 'solid',
-    iconColor: '#3d6b40',
+    iconColor: '#0d47a1',
     textColor: '#252525',
-    labelColor: 'text-green-900',
+    labelColor: 'text-[#0a3d7a]',
     icon: 'Church',
   },
   committed: {
-    bg: '#66bb6a',
-    bgGradient: 'linear-gradient(135deg, #81c784 0%, #66bb6a 100%)',
-    border: '#4caf50',
+    bg: '#42a5f5',
+    bgGradient: 'linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%)',
+    border: '#1d9fd9',
     borderStyle: 'solid',
     iconColor: '#ffffff',
     textColor: '#ffffff',
-    labelColor: 'text-green-100',
+    labelColor: 'text-blue-100',
     icon: 'HeartHandshake',
   },
   core: {
-    bg: '#4caf50',
-    bgGradient: 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)',
-    border: '#2e7d32',
+    bg: '#1d9fd9',
+    bgGradient: 'linear-gradient(135deg, #1d9fd9 0%, #1272a0 100%)',
+    border: '#0e5a7a',
     borderStyle: 'solid',
     iconColor: '#ffffff',
     textColor: '#ffffff',
-    labelColor: 'text-green-100',
+    labelColor: 'text-blue-100',
     icon: 'Star',
   },
 };
@@ -72,43 +72,43 @@ export type ChartPointStyle = {
 
 export const CIRCLE_CHART_POINT_STYLES: ChartPointStyle[] = [
   {
-    bg: 'rgba(200, 230, 201, 0.3)',
-    border: '#a5d6a7',
+    bg: 'rgba(187, 222, 251, 0.3)',
+    border: '#90caf9',
     dashed: true,
-    iconColor: '#66bb6a',
+    iconColor: '#42a5f5',
     icon: 'globe',
   },
-  { bg: '#c8e6c9', border: '#a5d6a7', dashed: false, iconColor: '#4a7c4e', icon: 'users' },
-  { bg: '#a5d6a7', border: '#81c784', dashed: false, iconColor: '#3d6b40', icon: 'church' },
+  { bg: '#bbdefb', border: '#90caf9', dashed: false, iconColor: '#1565c0', icon: 'users' },
+  { bg: '#90caf9', border: '#64b5f6', dashed: false, iconColor: '#0d47a1', icon: 'church' },
   {
-    bg: '#81c784',
-    border: '#66bb6a',
+    bg: '#64b5f6',
+    border: '#42a5f5',
     dashed: false,
     iconColor: '#ffffff',
     icon: 'heart-handshake',
   },
-  { bg: '#4caf50', border: '#2e7d32', dashed: false, iconColor: '#ffffff', icon: 'star' },
+  { bg: '#1d9fd9', border: '#0e5a7a', dashed: false, iconColor: '#ffffff', icon: 'star' },
 ];
 
-// Dark mode chart point styles - vibrant colors on dark backgrounds
+// Dark mode chart point styles
 export const CIRCLE_CHART_POINT_STYLES_DARK: ChartPointStyle[] = [
   {
-    bg: 'rgba(61, 90, 62, 0.5)',
-    border: '#4a7a4c',
+    bg: 'rgba(30, 60, 90, 0.5)',
+    border: '#3a7ab0',
     dashed: true,
-    iconColor: '#7acc7e',
+    iconColor: '#64b5f6',
     icon: 'globe',
   },
-  { bg: '#3d5a3e', border: '#4a7a4c', dashed: false, iconColor: '#8ce68e', icon: 'users' },
-  { bg: '#4a7a4c', border: '#5a9a5c', dashed: false, iconColor: '#a8f0aa', icon: 'church' },
+  { bg: '#1e3c5a', border: '#3a7ab0', dashed: false, iconColor: '#90caf9', icon: 'users' },
+  { bg: '#2a5a80', border: '#4a8ac0', dashed: false, iconColor: '#bbdefb', icon: 'church' },
   {
-    bg: '#5a9a5c',
-    border: '#6ab86c',
+    bg: '#3a7ab0',
+    border: '#4a9ad0',
     dashed: false,
     iconColor: '#ffffff',
     icon: 'heart-handshake',
   },
-  { bg: '#6ab86c', border: '#7acc7e', dashed: false, iconColor: '#ffffff', icon: 'star' },
+  { bg: '#4a9ad0', border: '#5abaee', dashed: false, iconColor: '#ffffff', icon: 'star' },
 ];
 
 export function getChartPointStyles(isDark: boolean): ChartPointStyle[] {
@@ -116,64 +116,63 @@ export function getChartPointStyles(isDark: boolean): ChartPointStyle[] {
 }
 
 // Light mode chart colors
-export const CIRCLE_LINE_COLORS = ['#c8e6c9', '#a5d6a7', '#81c784', '#66bb6a', '#4caf50'];
-export const CIRCLE_DOUGHNUT_COLORS = ['#c8e6c9', '#a5d6a7', '#81c784', '#66bb6a', '#4caf50'];
+export const CIRCLE_LINE_COLORS = ['#bbdefb', '#90caf9', '#64b5f6', '#42a5f5', '#1d9fd9'];
+export const CIRCLE_DOUGHNUT_COLORS = ['#bbdefb', '#90caf9', '#64b5f6', '#42a5f5', '#1d9fd9'];
 
-// Dark mode chart colors - more vibrant and distinguishable (less muted as they get darker)
-export const CIRCLE_LINE_COLORS_DARK = ['#3d5a3e', '#4a7a4c', '#5a9a5c', '#6ab86c', '#7acc7e'];
-export const CIRCLE_DOUGHNUT_COLORS_DARK = ['#3d5a3e', '#4a7a4c', '#5a9a5c', '#6ab86c', '#7acc7e'];
+// Dark mode chart colors
+export const CIRCLE_LINE_COLORS_DARK = ['#1e3c5a', '#2a5a80', '#3a7ab0', '#4a9ad0', '#5abaee'];
+export const CIRCLE_DOUGHNUT_COLORS_DARK = ['#1e3c5a', '#2a5a80', '#3a7ab0', '#4a9ad0', '#5abaee'];
 
-// Dark mode circle styles - vibrant greens that are distinguishable on dark backgrounds
-// Colors get progressively brighter (less muted) as they represent inner circles
+// Dark mode circle styles
 export const CIRCLE_STYLES_DARK: Record<CircleName, CircleStyle> = {
   community: {
-    bg: '#3d5a3e',
-    bgGradient: 'linear-gradient(135deg, #2a4a2c 0%, #3d5a3e 100%)',
-    border: '#4a7a4c',
+    bg: '#1e3c5a',
+    bgGradient: 'linear-gradient(135deg, #142a40 0%, #1e3c5a 100%)',
+    border: '#3a7ab0',
     borderStyle: 'dashed',
-    iconColor: '#7acc7e',
-    textColor: '#e8f5e9',
-    labelColor: 'text-green-300',
+    iconColor: '#64b5f6',
+    textColor: '#e3f2fd',
+    labelColor: 'text-blue-300',
     icon: 'Globe',
   },
   crowd: {
-    bg: '#4a7a4c',
-    bgGradient: 'linear-gradient(135deg, #3d5a3e 0%, #4a7a4c 100%)',
-    border: '#5a9a5c',
+    bg: '#2a5a80',
+    bgGradient: 'linear-gradient(135deg, #1e3c5a 0%, #2a5a80 100%)',
+    border: '#4a8ac0',
     borderStyle: 'solid',
-    iconColor: '#8ce68e',
-    textColor: '#e8f5e9',
-    labelColor: 'text-green-300',
+    iconColor: '#90caf9',
+    textColor: '#e3f2fd',
+    labelColor: 'text-blue-300',
     icon: 'Users',
   },
   congregation: {
-    bg: '#5a9a5c',
-    bgGradient: 'linear-gradient(135deg, #4a7a4c 0%, #5a9a5c 100%)',
-    border: '#6ab86c',
+    bg: '#3a7ab0',
+    bgGradient: 'linear-gradient(135deg, #2a5a80 0%, #3a7ab0 100%)',
+    border: '#4a9ad0',
     borderStyle: 'solid',
-    iconColor: '#a8f0aa',
-    textColor: '#e8f5e9',
-    labelColor: 'text-green-200',
+    iconColor: '#bbdefb',
+    textColor: '#e3f2fd',
+    labelColor: 'text-blue-200',
     icon: 'Church',
   },
   committed: {
-    bg: '#6ab86c',
-    bgGradient: 'linear-gradient(135deg, #5a9a5c 0%, #6ab86c 100%)',
-    border: '#7acc7e',
+    bg: '#4a9ad0',
+    bgGradient: 'linear-gradient(135deg, #3a7ab0 0%, #4a9ad0 100%)',
+    border: '#5abaee',
     borderStyle: 'solid',
-    iconColor: '#c8faca',
+    iconColor: '#dbeafe',
     textColor: '#ffffff',
-    labelColor: 'text-green-100',
+    labelColor: 'text-blue-100',
     icon: 'HeartHandshake',
   },
   core: {
-    bg: '#7acc7e',
-    bgGradient: 'linear-gradient(135deg, #6ab86c 0%, #7acc7e 100%)',
-    border: '#8ae08c',
+    bg: '#5abaee',
+    bgGradient: 'linear-gradient(135deg, #4a9ad0 0%, #5abaee 100%)',
+    border: '#6acafe',
     borderStyle: 'solid',
     iconColor: '#ffffff',
     textColor: '#ffffff',
-    labelColor: 'text-green-100',
+    labelColor: 'text-blue-100',
     icon: 'Star',
   },
 };
@@ -191,7 +190,7 @@ export function getCircleDoughnutColors(isDark: boolean): string[] {
   return isDark ? CIRCLE_DOUGHNUT_COLORS_DARK : CIRCLE_DOUGHNUT_COLORS;
 }
 
-export const ENGAGEMENT_COLORS = ['#AAD43C', '#eab308', '#f97316', '#3b82f6', '#ef4444'];
+export const ENGAGEMENT_COLORS = ['#1d9fd9', '#eab308', '#f97316', '#3b82f6', '#ef4444'];
 export const PARTICIPANT_COLORS = [
   '#3b82f6',
   '#6366f1',
@@ -226,115 +225,115 @@ export const CIRCLE_MODAL_DESIGN: Record<'overview' | CircleName, CircleModalDes
   overview: {
     title: 'All Circles',
     description: 'Combined view across all circles of commitment',
-    color: '#AAD43C',
-    gradient: 'linear-gradient(135deg, #AAD43C 0%, #90c23e 100%)',
-    headerTextColor: '#2d3a1a',
-    headerSubColor: 'rgba(45,58,26,0.5)',
+    color: '#1d9fd9',
+    gradient: 'linear-gradient(135deg, #1d9fd9 0%, #1272a0 100%)',
+    headerTextColor: '#ffffff',
+    headerSubColor: 'rgba(255,255,255,0.7)',
     icon: 'Target',
   },
   community: {
     title: 'Community',
     description: 'The unchurched in the immediate area - your starting point and hottest prospects',
-    color: '#a5d6a7',
-    gradient: 'linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%)',
+    color: '#90caf9',
+    gradient: 'linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)',
     headerTextColor: '#1a1a1a',
-    headerSubColor: '#15803d',
+    headerSubColor: '#1565c0',
     icon: 'Globe',
   },
   crowd: {
     title: 'Crowd',
     description: 'Everyone who shows up - regular service attendees',
-    color: '#81c784',
-    gradient: 'linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%)',
+    color: '#64b5f6',
+    gradient: 'linear-gradient(135deg, #bbdefb 0%, #90caf9 100%)',
     headerTextColor: '#1a1a1a',
-    headerSubColor: '#166534',
+    headerSubColor: '#0d47a1',
     icon: 'Users',
   },
   congregation: {
     title: 'Congregation',
     description: 'Official members of the church with a sense of ownership',
-    color: '#66bb6a',
-    gradient: 'linear-gradient(135deg, #a5d6a7 0%, #81c784 100%)',
+    color: '#42a5f5',
+    gradient: 'linear-gradient(135deg, #90caf9 0%, #64b5f6 100%)',
     headerTextColor: '#1a1a1a',
-    headerSubColor: '#14532d',
+    headerSubColor: '#0a3d7a',
     icon: 'Church',
   },
   committed: {
     title: 'Committed',
     description: 'People who pray, give, and are dedicated to growing in discipleship',
-    color: '#4caf50',
-    gradient: 'linear-gradient(135deg, #81c784 0%, #66bb6a 100%)',
+    color: '#1d9fd9',
+    gradient: 'linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%)',
     headerTextColor: '#ffffff',
-    headerSubColor: '#dcfce7',
+    headerSubColor: '#e3f2fd',
     icon: 'HeartHandshake',
   },
   core: {
     title: 'Core',
     description:
       'Ministers and leaders - without these people the church would come to a standstill',
-    color: '#4caf50',
-    gradient: 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)',
+    color: '#1272a0',
+    gradient: 'linear-gradient(135deg, #1d9fd9 0%, #1272a0 100%)',
     headerTextColor: '#ffffff',
-    headerSubColor: '#dcfce7',
+    headerSubColor: '#e3f2fd',
     icon: 'Star',
   },
 };
 
-// Dark mode modal design - vibrant greens with better contrast
+// Dark mode modal design
 export const CIRCLE_MODAL_DESIGN_DARK: Record<'overview' | CircleName, CircleModalDesign> = {
   overview: {
     title: 'All Circles',
     description: 'Combined view across all circles of commitment',
-    color: '#AAD43C',
-    gradient: 'linear-gradient(135deg, #6a8a28 0%, #7aa030 100%)',
-    headerTextColor: '#e8f5e9',
-    headerSubColor: 'rgba(200, 230, 201, 0.7)',
+    color: '#1d9fd9',
+    gradient: 'linear-gradient(135deg, #1272a0 0%, #1d9fd9 100%)',
+    headerTextColor: '#e3f2fd',
+    headerSubColor: 'rgba(187, 222, 251, 0.7)',
     icon: 'Target',
   },
   community: {
     title: 'Community',
     description: 'The unchurched in the immediate area - your starting point and hottest prospects',
-    color: '#4a7a4c',
-    gradient: 'linear-gradient(135deg, #2a4a2c 0%, #3d5a3e 100%)',
-    headerTextColor: '#e8f5e9',
-    headerSubColor: '#a8f0aa',
+    color: '#3a7ab0',
+    gradient: 'linear-gradient(135deg, #142a40 0%, #1e3c5a 100%)',
+    headerTextColor: '#e3f2fd',
+    headerSubColor: '#90caf9',
     icon: 'Globe',
   },
   crowd: {
     title: 'Crowd',
     description: 'Everyone who shows up - regular service attendees',
-    color: '#5a9a5c',
-    gradient: 'linear-gradient(135deg, #3d5a3e 0%, #4a7a4c 100%)',
-    headerTextColor: '#e8f5e9',
-    headerSubColor: '#a8f0aa',
+    color: '#4a8ac0',
+    gradient: 'linear-gradient(135deg, #1e3c5a 0%, #2a5a80 100%)',
+    headerTextColor: '#e3f2fd',
+    headerSubColor: '#90caf9',
     icon: 'Users',
   },
   congregation: {
     title: 'Congregation',
     description: 'Official members of the church with a sense of ownership',
-    color: '#6ab86c',
-    gradient: 'linear-gradient(135deg, #4a7a4c 0%, #5a9a5c 100%)',
-    headerTextColor: '#e8f5e9',
-    headerSubColor: '#c8faca',
+    color: '#4a9ad0',
+    gradient: 'linear-gradient(135deg, #2a5a80 0%, #3a7ab0 100%)',
+    headerTextColor: '#e3f2fd',
+    headerSubColor: '#bbdefb',
     icon: 'Church',
   },
   committed: {
     title: 'Committed',
     description: 'People who pray, give, and are dedicated to growing in discipleship',
-    color: '#7acc7e',
-    gradient: 'linear-gradient(135deg, #5a9a5c 0%, #6ab86c 100%)',
+    color: '#5abaee',
+    gradient: 'linear-gradient(135deg, #3a7ab0 0%, #4a9ad0 100%)',
     headerTextColor: '#ffffff',
-    headerSubColor: '#c8faca',
+    headerSubColor: '#bbdefb',
     icon: 'HeartHandshake',
   },
   core: {
     title: 'Core',
     description:
       'Ministers and leaders - without these people the church would come to a standstill',
-    color: '#8ae08c',
-    gradient: 'linear-gradient(135deg, #6ab86c 0%, #7acc7e 100%)',
+    color: '#6acafe',
+    gradient: 'linear-gradient(135deg, #4a9ad0 0%, #5abaee 100%)',
     headerTextColor: '#ffffff',
-    headerSubColor: '#e8faea',
+    headerSubColor: '#e3f2fd',
     icon: 'Star',
   },
 };

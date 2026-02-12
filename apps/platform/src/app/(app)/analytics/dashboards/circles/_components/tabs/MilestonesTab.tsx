@@ -14,19 +14,19 @@ const ICON_MAP: Record<CircleName, typeof Globe> = {
 };
 
 const BG_ICON_COLORS: Record<CircleName, string> = {
-  community: '#2e7d32',
-  crowd: '#2e7d32',
-  congregation: '#1b5e20',
-  committed: '#1b5e20',
-  core: '#1b5e20',
+  community: '#0d47a1',
+  crowd: '#0d47a1',
+  congregation: '#0a3d7a',
+  committed: '#0a3d7a',
+  core: '#0a3d7a',
 };
 
 const BG_ICON_COLORS_DARK: Record<CircleName, string> = {
-  community: '#2a4a2c',
-  crowd: '#3d5a3e',
-  congregation: '#4a7a4c',
-  committed: '#5a9a5c',
-  core: '#6ab86c',
+  community: '#142a40',
+  crowd: '#1e3c5a',
+  congregation: '#2a5a80',
+  committed: '#3a7ab0',
+  core: '#4a9ad0',
 };
 
 type TextStyles = {
@@ -51,34 +51,34 @@ const HEADER_TEXT_STYLES: Record<
 > = {
   community: {
     heading: 'text-[#252525]',
-    th: 'text-green-800',
-    firstInCircle: 'text-green-700',
-    desc: 'text-green-800/70',
-    border: 'border-green-200/50',
+    th: 'text-[#1565c0]',
+    firstInCircle: 'text-[#1565c0]',
+    desc: 'text-[#1565c0]/70',
+    border: 'border-blue-200/50',
     rowHover: 'hover:bg-white/30',
   },
   crowd: {
     heading: 'text-[#252525]',
-    th: 'text-green-800',
-    firstInCircle: 'text-green-800',
-    desc: 'text-green-800/70',
-    border: 'border-green-300/50',
+    th: 'text-[#0d47a1]',
+    firstInCircle: 'text-[#0d47a1]',
+    desc: 'text-[#0d47a1]/70',
+    border: 'border-blue-300/50',
     rowHover: 'hover:bg-white/30',
   },
   congregation: {
     heading: 'text-[#252525]',
-    th: 'text-green-900',
-    firstInCircle: 'text-green-900',
-    desc: 'text-green-900/70',
-    border: 'border-green-400/50',
+    th: 'text-[#0a3d7a]',
+    firstInCircle: 'text-[#0a3d7a]',
+    desc: 'text-[#0a3d7a]/70',
+    border: 'border-blue-400/50',
     rowHover: 'hover:bg-white/30',
   },
   committed: {
     heading: 'text-white',
     th: 'text-white',
-    firstInCircle: 'text-green-100',
+    firstInCircle: 'text-blue-100',
     desc: 'text-white/80',
-    border: 'border-green-500/50',
+    border: 'border-blue-500/50',
     rowHover: 'hover:bg-white/20',
   },
   core: {
@@ -94,43 +94,43 @@ const HEADER_TEXT_STYLES: Record<
 // Dark mode text styles - all use light text on dark muted backgrounds
 const HEADER_TEXT_STYLES_DARK: Record<CircleName, TextStyles> = {
   community: {
-    heading: 'text-green-100',
-    th: 'text-green-200',
-    firstInCircle: 'text-green-300',
-    desc: 'text-green-200/70',
-    border: 'border-green-800/50',
+    heading: 'text-blue-100',
+    th: 'text-blue-200',
+    firstInCircle: 'text-blue-300',
+    desc: 'text-blue-200/70',
+    border: 'border-blue-800/50',
     rowHover: 'hover:bg-white/10',
   },
   crowd: {
-    heading: 'text-green-100',
-    th: 'text-green-200',
-    firstInCircle: 'text-green-300',
-    desc: 'text-green-200/70',
-    border: 'border-green-700/50',
+    heading: 'text-blue-100',
+    th: 'text-blue-200',
+    firstInCircle: 'text-blue-300',
+    desc: 'text-blue-200/70',
+    border: 'border-blue-700/50',
     rowHover: 'hover:bg-white/10',
   },
   congregation: {
-    heading: 'text-green-100',
-    th: 'text-green-200',
-    firstInCircle: 'text-green-300',
-    desc: 'text-green-200/70',
-    border: 'border-green-600/50',
+    heading: 'text-blue-100',
+    th: 'text-blue-200',
+    firstInCircle: 'text-blue-300',
+    desc: 'text-blue-200/70',
+    border: 'border-blue-600/50',
     rowHover: 'hover:bg-white/10',
   },
   committed: {
     heading: 'text-white',
-    th: 'text-green-100',
-    firstInCircle: 'text-green-200',
+    th: 'text-blue-100',
+    firstInCircle: 'text-blue-200',
     desc: 'text-white/80',
-    border: 'border-green-500/50',
+    border: 'border-blue-500/50',
     rowHover: 'hover:bg-white/15',
   },
   core: {
     heading: 'text-white',
-    th: 'text-green-100',
-    firstInCircle: 'text-green-200',
+    th: 'text-blue-100',
+    firstInCircle: 'text-blue-200',
     desc: 'text-white/80',
-    border: 'border-green-400/50',
+    border: 'border-blue-400/50',
     rowHover: 'hover:bg-white/15',
   },
 };
@@ -147,15 +147,15 @@ function MilestoneTable({
   isDark: boolean;
 }) {
   const isInnerCircle = circle === 'committed' || circle === 'core';
-  const nameColor = isDark ? 'text-green-100' : isInnerCircle ? 'text-white' : 'text-[#252525]';
-  const totalColor = isDark ? 'text-green-100' : isInnerCircle ? 'text-white' : 'text-[#252525]';
+  const nameColor = isDark ? 'text-blue-100' : isInnerCircle ? 'text-white' : 'text-[#252525]';
+  const totalColor = isDark ? 'text-blue-100' : isInnerCircle ? 'text-white' : 'text-[#252525]';
 
   return (
     <table className="w-full">
       <thead>
         <tr
           className={`border-b ${styles.border}`}
-          style={circle === 'core' ? { borderColor: 'rgba(125, 163, 45, 0.5)' } : undefined}
+          style={circle === 'core' ? { borderColor: 'rgba(14, 90, 122, 0.5)' } : undefined}
         >
           <th
             className={`px-2 py-1 text-left text-xs font-bold tracking-wider uppercase md:px-4 ${styles.th}`}
@@ -201,7 +201,7 @@ function MilestoneTable({
             </td>
             <td
               className={`px-2 py-1.5 text-right text-sm font-medium whitespace-nowrap md:px-4 md:py-3 md:text-base ${styles.firstInCircle}`}
-              style={{ verticalAlign: 'top', ...(circle === 'core' ? { color: '#e8f5e9' } : {}) }}
+              style={{ verticalAlign: 'top', ...(circle === 'core' ? { color: '#e3f2fd' } : {}) }}
             >
               {row.firstInCircle}
             </td>

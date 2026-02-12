@@ -49,8 +49,8 @@ function LegendCard({
       ? `${item.textColor}99`
       : 'rgba(255,255,255,0.75)';
   // Background icon colors that match the circle progression
-  const bgIconColorsDark = ['#2a4a2c', '#3d5a3e', '#4a7a4c', '#5a9a5c', '#6ab86c'];
-  const bgIconColorsLight = ['#2e7d32', '#2e7d32', '#1b5e20', '#1b5e20', '#1b5e20'];
+  const bgIconColorsDark = ['#142a40', '#1e3c5a', '#2a5a80', '#3a7ab0', '#4a9ad0'];
+  const bgIconColorsLight = ['#0d47a1', '#0d47a1', '#0a3d7a', '#0a3d7a', '#0a3d7a'];
   const bgIconColor = isDark ? bgIconColorsDark[index] : bgIconColorsLight[index];
 
   // Mute non-active items when there are active filters
@@ -255,18 +255,18 @@ export default function DistributionDoughnut({
               const textColor = isDark ? '#e0e0e0' : item.textColor || '#ffffff';
               // Background icon colors that match the circle progression
               const mobileBgIconColorsDark = [
-                '#2a4a2c',
-                '#3d5a3e',
-                '#4a7a4c',
-                '#5a9a5c',
-                '#6ab86c',
+                '#142a40',
+                '#1e3c5a',
+                '#2a5a80',
+                '#3a7ab0',
+                '#4a9ad0',
               ];
               const mobileBgIconColorsLight = [
-                '#2e7d32',
-                '#2e7d32',
-                '#1b5e20',
-                '#1b5e20',
-                '#1b5e20',
+                '#0d47a1',
+                '#0d47a1',
+                '#0a3d7a',
+                '#0a3d7a',
+                '#0a3d7a',
               ];
               const bgIconColor = isDark ? mobileBgIconColorsDark[i] : mobileBgIconColorsLight[i];
               const isActive = selectedLabels.has(item.label);

@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useTabReady } from '../TabReadyProvider';
 import type { FilterConfig } from '../../_data/types';
 
-const BRAND_GREEN_GRADIENT = 'var(--brand-gradient)';
+const BRAND_GRADIENT = 'var(--brand-gradient)';
 
 interface FilterBarProps {
   filterConfigs: FilterConfig[];
@@ -28,7 +28,7 @@ function FilterPeekTrigger({
   mode: PeekSheetTriggerContext['mode'];
 }) {
   if (mode === 'modal') {
-    // Desktop: round green action button (PageActionButton primary style)
+    // Desktop: round brand action button (PageActionButton primary style)
     return (
       <button
         onClick={onTap}
@@ -59,7 +59,7 @@ function FilterPeekTrigger({
       <motion.button
         onClick={onTap}
         className="relative flex h-14 w-14 items-center justify-center rounded-full shadow-lg"
-        style={{ background: BRAND_GREEN_GRADIENT }}
+        style={{ background: BRAND_GRADIENT }}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -88,7 +88,7 @@ function FilterSheetHeader({ activeCount, onReset }: { activeCount: number; onRe
   return (
     <div
       className="relative overflow-hidden px-4 pt-3 pb-6 md:px-8 md:pt-6 md:pb-8"
-      style={{ background: BRAND_GREEN_GRADIENT }}
+      style={{ background: BRAND_GRADIENT }}
     >
       {/* Sliders icon watermark */}
       <div className="pointer-events-none absolute right-2 bottom-2 md:top-1/2 md:-right-4 md:bottom-auto md:-translate-y-1/2">

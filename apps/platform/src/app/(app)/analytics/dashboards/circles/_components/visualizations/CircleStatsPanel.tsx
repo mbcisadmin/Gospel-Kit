@@ -14,19 +14,19 @@ const ICON_MAP: Record<CircleName, typeof Globe> = {
 };
 
 const BG_ICON_COLORS: Record<CircleName, string> = {
-  community: '#2e7d32',
-  crowd: '#2e7d32',
-  congregation: '#1b5e20',
-  committed: '#1b5e20',
-  core: '#1b5e20',
+  community: '#0d47a1',
+  crowd: '#0d47a1',
+  congregation: '#0a3d7a',
+  committed: '#0a3d7a',
+  core: '#0a3d7a',
 };
 
 const BG_ICON_COLORS_DARK: Record<CircleName, string> = {
-  community: '#2a4a2c',
-  crowd: '#3d5a3e',
-  congregation: '#4a7a4c',
-  committed: '#5a9a5c',
-  core: '#6ab86c',
+  community: '#142a40',
+  crowd: '#1e3c5a',
+  congregation: '#2a5a80',
+  committed: '#3a7ab0',
+  core: '#4a9ad0',
 };
 
 interface CircleStatsPanelProps {
