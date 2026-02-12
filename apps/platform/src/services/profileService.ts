@@ -86,7 +86,7 @@ export async function getUserProfile(
   const procedureService = new ProcedureService(mpClient);
 
   const result = (await procedureService.executeProcedureWithBody(
-    'api_Custom_GetUserProfile_JSON',
+    'api_TheHub_GetUserProfile_JSON',
     {
       '@UserGUID': userGuid,
       '@AdminRoleID': adminRoleId ?? null,

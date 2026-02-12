@@ -166,7 +166,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         // Fetch user profile, admin status, and groups in ONE stored procedure call
         try {
           const result = (await procedureService.executeProcedureWithBody(
-            'api_Custom_GetUserProfile_JSON',
+            'api_TheHub_GetUserProfile_JSON',
             {
               '@UserGUID': session.sub,
               '@AdminRoleID': adminRoleId,
@@ -256,7 +256,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                   if (users.length > 0 && users[0].User_GUID) {
                     // Call stored procedure for impersonated user
                     const impersonatedResult = (await procedureService.executeProcedureWithBody(
-                      'api_Custom_GetUserProfile_JSON',
+                      'api_TheHub_GetUserProfile_JSON',
                       {
                         '@UserGUID': users[0].User_GUID,
                         '@AdminRoleID': adminRoleId,
