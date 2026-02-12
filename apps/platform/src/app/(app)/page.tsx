@@ -333,27 +333,56 @@ function getGreeting(): string {
 function EmptyStateNotLoggedIn() {
   return (
     <div className="flex flex-col items-center px-6 pt-16 text-center md:pt-24">
-      <section className="relative flex flex-col items-center">
-        <SectionHeader
-          title="Welcome"
-          subtitle="You've found The Hub"
-          icon={LogIn}
-          variant="watermark"
-          as="h1"
-          className="mb-4"
-        />
-        <p className="text-muted-foreground max-w-md text-sm tracking-wide md:text-base">
+      {/* Big central church logo watermark */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.03 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+        className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      >
+        <ChurchLogo className="h-[60vw] max-h-[500px] w-[60vw] max-w-[500px]" />
+      </motion.div>
+
+      <section className="relative z-10 flex flex-col items-center">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-foreground mb-4 text-5xl font-black tracking-tighter uppercase md:mb-6 md:text-8xl"
+        >
+          <TitleHighlight animation="underline" inset="1rem">
+            Welcome
+          </TitleHighlight>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="text-muted-foreground mt-2 text-sm font-medium tracking-widest uppercase md:text-base"
+        >
+          You&apos;ve found the Church Hub
+        </motion.p>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+          className="text-muted-foreground mt-6 max-w-md text-sm tracking-wide md:text-base"
+        >
           This is where {churchConfig.name} staff and volunteers access dashboards, tools, and
           resources. Sign in with your Ministry Platform account to get started.
-        </p>
+        </motion.p>
 
-        <button
+        <motion.button
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.4 }}
           onClick={() => signIn('ministryplatform')}
           className="bg-primary text-primary-foreground hover:bg-primary/90 mt-8 inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase transition-colors"
         >
           <LogIn className="h-4 w-4" />
           Sign In
-        </button>
+        </motion.button>
       </section>
     </div>
   );
