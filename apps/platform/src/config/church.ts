@@ -53,13 +53,15 @@ export function pageTitle(page?: string): string {
 export function footerLinks(): Array<{ label: string; href: string; external: boolean }> {
   const links: Array<{ label: string; href: string; external: boolean }> = [];
 
-  if (churchConfig.websiteUrl && churchConfig.websiteUrl !== 'https://example.com') {
-    const display = churchConfig.websiteUrl.replace(/^https?:\/\//, '');
-    links.push({ label: display, href: churchConfig.websiteUrl, external: true });
+  const website: string = churchConfig.websiteUrl;
+  if (website && website !== 'https://example.com') {
+    const display = website.replace(/^https?:\/\//, '');
+    links.push({ label: display, href: website, external: true });
   }
 
-  if (churchConfig.privacyUrl && churchConfig.privacyUrl !== 'https://example.com/privacy') {
-    links.push({ label: 'Privacy Policy', href: churchConfig.privacyUrl, external: true });
+  const privacy: string = churchConfig.privacyUrl;
+  if (privacy && privacy !== 'https://example.com/privacy') {
+    links.push({ label: 'Privacy Policy', href: privacy, external: true });
   }
 
   return links;

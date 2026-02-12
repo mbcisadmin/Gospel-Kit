@@ -1,18 +1,41 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { getToken } from 'next-auth/jwt';
+import { getTenantBySlug, getTenantByDomain } from '@church/database/central/services/tenant';
+
+const PLATFORM_DOMAIN = 'churchhub.dev';
 
 /**
- * Simplified middleware for Gospel Kit template
- *
- * This middleware handles basic authentication checks.
- * You can extend it with custom permission logic as needed.
+ * Parse tenant slug from hostname.
+ * Returns the slug for *.churchhub.dev subdomains, or null for single-tenant mode.
  */
+function parseTenantSlug(hostname: string): { slug: string | null; isCustomDomain: boolean } {
+  // Strip port for comparison
+  const host = hostname.split(':')[0];
+
+  // localhost / 127.0.0.1 → single-tenant mode
+  if (host === 'localhost' || host === '127.0.0.1') {
+    return { slug: null, isCustomDomain: false };
+  }
+
+  // *.churchhub.dev → extract subdomain as slug
+  if (host.endsWith(`.${PLATFORM_DOMAIN}`)) {
+    const slug = host.replace(`.${PLATFORM_DOMAIN}`, '');
+    // Ignore bare domain or multi-level subdomains
+    if (slug && !slug.includes('.')) {
+      return { slug, isCustomDomain: false };
+    }
+    return { slug: null, isCustomDomain: false };
+  }
+
+  // Any other domain → treat as custom domain
+  return { slug: null, isCustomDomain: true };
+}
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Allow public paths (API routes, signin, home, error pages)
-  if (
+  const isPublicPath =
     pathname.startsWith('/api') ||
     pathname.startsWith('/_next') ||
     pathname === '/signin' ||
@@ -20,13 +43,62 @@ export async function middleware(request: NextRequest) {
     pathname === '/403' ||
     pathname === '/404' ||
     pathname === '/500' ||
-    pathname === '/error'
-  ) {
+    pathname === '/error';
+
+  // --- Tenant Resolution ---
+  const hostname = request.headers.get('host') ?? 'localhost';
+  const { slug, isCustomDomain } = parseTenantSlug(hostname);
+
+  let tenantHeaders: Record<string, string> | null = null;
+
+  if (slug) {
+    // Subdomain mode: look up by slug
+    const tenant = await getTenantBySlug(slug);
+    if (!tenant) {
+      return new NextResponse('Church not found', { status: 404 });
+    }
+    tenantHeaders = {
+      'x-tenant-id': tenant.id,
+      'x-tenant-slug': tenant.slug,
+      'x-tenant-name': tenant.name,
+      'x-tenant-mp-domain': tenant.mpDomain,
+      'x-tenant-mp-client-id': tenant.mpClientId,
+      'x-tenant-logo-url': tenant.logoUrl ?? '',
+      'x-tenant-primary-color': tenant.primaryColor ?? '',
+    };
+  } else if (isCustomDomain) {
+    // Custom domain mode: look up by domain
+    const host = hostname.split(':')[0];
+    const tenant = await getTenantByDomain(host);
+    if (!tenant) {
+      return new NextResponse('Church not found', { status: 404 });
+    }
+    tenantHeaders = {
+      'x-tenant-id': tenant.id,
+      'x-tenant-slug': tenant.slug,
+      'x-tenant-name': tenant.name,
+      'x-tenant-mp-domain': tenant.mpDomain,
+      'x-tenant-mp-client-id': tenant.mpClientId,
+      'x-tenant-logo-url': tenant.logoUrl ?? '',
+      'x-tenant-primary-color': tenant.primaryColor ?? '',
+    };
+  }
+  // else: single-tenant mode — no tenant headers, app uses env vars as before
+
+  // --- Public paths: forward with tenant headers if present ---
+  if (isPublicPath) {
+    if (tenantHeaders) {
+      const requestHeaders = new Headers(request.headers);
+      for (const [key, value] of Object.entries(tenantHeaders)) {
+        requestHeaders.set(key, value);
+      }
+      return NextResponse.next({ request: { headers: requestHeaders } });
+    }
     return NextResponse.next();
   }
 
+  // --- Auth Check ---
   try {
-    // Check for authentication token
     let token = await getToken({
       req: request,
       secret: process.env.NEXTAUTH_SECRET,
@@ -50,11 +122,14 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(signInUrl);
     }
 
-    // User is authenticated, allow access
-    // You can add custom permission checks here based on:
-    // - token.roles (user roles from MinistryPlatform)
-    // - token.email (user email)
-    // - pathname (current route)
+    // User is authenticated — forward with tenant headers if present
+    if (tenantHeaders) {
+      const requestHeaders = new Headers(request.headers);
+      for (const [key, value] of Object.entries(tenantHeaders)) {
+        requestHeaders.set(key, value);
+      }
+      return NextResponse.next({ request: { headers: requestHeaders } });
+    }
 
     return NextResponse.next();
   } catch (error) {

@@ -9,7 +9,11 @@
     "./neon": "./src/neon/index.ts",
     "./neon/client": "./src/neon/client.ts",
     "./neon/schemas/*": "./src/neon/schemas/*.ts",
-    "./neon/services/*": "./src/neon/services/*.ts"
+    "./neon/services/*": "./src/neon/services/*.ts",
+    "./central": "./src/central/index.ts",
+    "./central/client": "./src/central/client.ts",
+    "./central/schemas/*": "./src/central/schemas/*.ts",
+    "./central/services/*": "./src/central/services/*.ts"
   },
   "scripts": {
     "build": "echo 'Skipping build - using raw TypeScript files'",
