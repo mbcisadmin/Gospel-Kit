@@ -30,12 +30,14 @@ function FilterPeekTrigger({
   if (mode === 'modal') {
     // Desktop: round brand action button (PageActionButton primary style)
     return (
-      <button
-        onClick={onTap}
-        aria-label="Filters"
-        className="bg-primary text-primary-foreground hover:bg-primary/90 relative flex h-12 w-12 items-center justify-center rounded-full shadow-sm transition-all hover:shadow-md"
-      >
-        <SlidersHorizontal className="h-5 w-5" />
+      <div className="relative">
+        <button
+          onClick={onTap}
+          aria-label="Filters"
+          className="bg-primary text-primary-foreground hover:bg-primary/90 flex h-12 w-12 items-center justify-center rounded-full shadow-sm transition-all hover:shadow-md"
+        >
+          <SlidersHorizontal className="h-5 w-5" />
+        </button>
         <AnimatePresence>
           {activeCount > 0 && (
             <motion.span
@@ -43,13 +45,11 @@ function FilterPeekTrigger({
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-              className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-white text-[10px] font-bold text-gray-900 shadow"
-            >
-              {activeCount}
-            </motion.span>
+              className="absolute top-0 right-0 h-3 w-3 rounded-full bg-red-500 shadow ring-2 ring-white"
+            />
           )}
         </AnimatePresence>
-      </button>
+      </div>
     );
   }
 

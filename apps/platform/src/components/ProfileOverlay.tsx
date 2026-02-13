@@ -68,48 +68,6 @@ interface ProfileData {
   householdMembers: HouseholdMember[];
 }
 
-// Mock data
-const MOCK_HOUSEHOLD_MEMBERS: HouseholdMember[] = [
-  {
-    contactId: 1001,
-    firstName: 'Sarah',
-    lastName: 'Johnson',
-    position: 'Spouse',
-    email: 'sarah.johnson@example.com',
-    mobilePhone: '(555) 555-0102',
-    age: 32,
-    imageUrl: null,
-  },
-  {
-    contactId: 1002,
-    firstName: 'Emma',
-    lastName: 'Johnson',
-    position: 'Child',
-    email: null,
-    mobilePhone: null,
-    age: 8,
-    imageUrl: null,
-  },
-  {
-    contactId: 1003,
-    firstName: 'Noah',
-    lastName: 'Johnson',
-    position: 'Child',
-    email: null,
-    mobilePhone: null,
-    age: 5,
-    imageUrl: null,
-  },
-];
-
-const MOCK_ADDRESS: ProfileAddress = {
-  line1: '1234 Maple Street',
-  line2: null,
-  city: 'Anytown',
-  state: 'US',
-  zip: '12345',
-};
-
 // ============================================================================
 // ProfileOverlay Component
 // ============================================================================
@@ -229,15 +187,14 @@ export default function ProfileOverlay({ open, onClose }: ProfileOverlayProps) {
       const response = await fetch('/api/profile');
       if (!response.ok) throw new Error('Failed to fetch profile');
       const data = await response.json();
-      const hasRealData = data.householdMembers?.length > 0 || data.address?.line1;
       setProfileData({
-        address: hasRealData ? data.address : MOCK_ADDRESS,
-        householdMembers: hasRealData ? data.householdMembers : MOCK_HOUSEHOLD_MEMBERS,
+        address: data.address ?? null,
+        householdMembers: data.householdMembers ?? [],
       });
     } catch {
       setProfileData({
-        address: MOCK_ADDRESS,
-        householdMembers: MOCK_HOUSEHOLD_MEMBERS,
+        address: null,
+        householdMembers: [],
       });
     } finally {
       setIsLoadingProfile(false);
@@ -456,11 +413,13 @@ export default function ProfileOverlay({ open, onClose }: ProfileOverlayProps) {
                     </h3>
                     {isLoadingProfile ? (
                       <div className="bg-muted-foreground/10 h-4 w-3/4 animate-pulse" />
-                    ) : (
+                    ) : profileData?.address?.line1 ? (
                       <div className="flex items-center gap-2">
                         <MapPin className="text-muted-foreground h-4 w-4 shrink-0" />
                         <p className="text-foreground text-sm">{formatAddress()}</p>
                       </div>
+                    ) : (
+                      <p className="text-muted-foreground text-sm">No address on file</p>
                     )}
                   </div>
 
@@ -474,7 +433,7 @@ export default function ProfileOverlay({ open, onClose }: ProfileOverlayProps) {
                         <div className="bg-muted-foreground/10 h-4 w-1/2 animate-pulse" />
                         <div className="bg-muted-foreground/10 h-4 w-1/3 animate-pulse" />
                       </div>
-                    ) : profileData?.householdMembers && profileData.householdMembers.length > 0 ? (
+                    ) : profileData?.householdMembers?.length ? (
                       <div className="flex flex-col gap-2">
                         {profileData.householdMembers.map((member) => (
                           <div key={member.contactId} className="flex items-center gap-2.5">
@@ -499,7 +458,7 @@ export default function ProfileOverlay({ open, onClose }: ProfileOverlayProps) {
                         ))}
                       </div>
                     ) : (
-                      <p className="text-muted-foreground text-sm">No household members found.</p>
+                      <p className="text-muted-foreground text-sm">No household members</p>
                     )}
                   </div>
 

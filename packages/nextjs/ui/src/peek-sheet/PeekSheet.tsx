@@ -507,7 +507,7 @@ function DesktopModal({
         <motion.div
           key="peek-trigger"
           layoutId={layoutId}
-          className="inline-flex overflow-hidden rounded-full"
+          className="inline-flex rounded-full"
           transition={LAYOUT_TRANSITION}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -557,7 +557,7 @@ function DesktopModal({
                 <div className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center">
                   <motion.div
                     layoutId={layoutId}
-                    className={`pointer-events-auto relative mx-4 flex max-h-[90vh] w-full flex-col overflow-hidden rounded-2xl shadow-2xl ${noPanelPadding ? '' : 'p-4'} ${maxWidth} ${panelClassName}`}
+                    className={`pointer-events-auto relative mx-4 flex max-h-[90vh] w-full flex-col overflow-hidden shadow-2xl ${noPanelPadding ? '' : 'p-4'} ${maxWidth} ${panelClassName}`}
                     transition={LAYOUT_TRANSITION}
                   >
                     {/* Close button */}

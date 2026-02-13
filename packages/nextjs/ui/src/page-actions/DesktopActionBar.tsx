@@ -30,7 +30,7 @@ export function DesktopActionBar() {
               variant={action.variant}
             />
             {hasBadge && (
-              <span className="bg-foreground ring-background absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full ring-2" />
+              <span className="absolute -top-0.5 -right-0.5 h-3 w-3 rounded-full bg-red-500 ring-2 ring-white dark:ring-gray-900" />
             )}
           </div>
         );
